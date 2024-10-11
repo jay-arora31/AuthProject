@@ -1,0 +1,184 @@
+/* styles.css */
+
+body {
+    background-color: #f0f2f5;  /* Light gray background for a softer look */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Modern font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;  /* Slightly wider for better usability */
+    padding: 20px;
+    background: white;
+    border-radius: 12px;  /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);  /* Deeper shadow for more depth */
+}
+
+.form-container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;  /* Space below the header */
+    font-size: 24px;  /* Larger font size for emphasis */
+}
+
+.form-group {
+    margin-bottom: 20px;  /* Increased margin for better spacing */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;  /* More space between label and input */
+    font-weight: bold;
+    color: #555;  /* Softer label color */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;  /* Increased padding for comfort */
+    border: 1px solid #ccc;
+    border-radius: 6px;  /* More rounded corners */
+    font-size: 16px;
+    transition: border-color 0.3s ease;  /* Smooth transition for focus state */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;  /* Highlight color on focus */
+    outline: none;  /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  /* Add subtle shadow on focus */
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;  /* Increased padding for comfort */
+    background-color: #007bff;  /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 6px;  /* More rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+.btn:hover {
+    background-color: #0056b3;  /* Darker shade on hover */
+    transform: translateY(-2px);  /* Slight lift effect on hover */
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;  /* Increased margin for better spacing */
+}
+
+.links a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;  /* Smooth transition for link color */
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: #0056b3;  /* Darker shade on hover for links */
+}
+     
+.container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 60px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #0056b3;
+}
+.errorlist {
+    color: red;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+   
+
+
+
+.form-signup {
+    max-width: 400px;
+    margin: auto;
+}
+.form-signup h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-signup button {
+    width: 100%;
+}
+.password-requirements {
+    margin-left: 15px;
+}
+.password-requirements h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.password-requirements ul {
+    padding-left: 20px;
+}
+.password-requirements ul li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}

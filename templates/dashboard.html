@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <!-- Welcome Section -->
+    {% if messages %}
+    <!-- Success/Error Messages -->
+    <div class="mt-8">
+        {% for message in messages %}
+        <div class="rounded-md {% if message.tags == 'success' %}bg-green-50{% else %}bg-red-50{% endif %} p-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    {% if message.tags == 'success' %}
+                    <svg class="h-5 w-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {% else %}
+                    <svg class="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                    {% endif %}
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm font-medium {% if message.tags == 'success' %}text-green-800{% else %}text-red-800{% endif %}">
+                        {{ message }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <div class="flex items-center space-x-4">
+            <div class="h-16 w-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-bold">
+                {{ request.user.username|slice:":1" }}
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">Welcome back, {{ request.user.username }}!</h1>
+                <p class="text-gray-500">Here's what's happening with your account today.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <!-- Account Age -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-indigo-100 text-indigo-600">
+                    <i class="fas fa-calendar text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-500">Account Age</p>
+                    <p class="text-lg font-semibold text-gray-900">{{ request.user.date_joined|timesince }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Login -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-green-100 text-green-600">
+                    <i class="fas fa-clock text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-500">Last Login</p>
+                    <p class="text-lg font-semibold text-gray-900">{{ request.user.last_login|timesince }} ago</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Status -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                    <i class="fas fa-envelope text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-500">Email Status</p>
+                    <p class="text-lg font-semibold text-gray-900">{{ request.user.email|default:"Not Set" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="bg-white rounded-lg shadow-sm p-6">
+        <h2 class="text-lg font-medium text-gray-900 mb-4">Quick Actions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="{% url 'profile_view' %}" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-150">
+                <div class="p-3 rounded-full bg-indigo-100 text-indigo-600">
+                    <i class="fas fa-user text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">View Profile</p>
+                    <p class="text-xs text-gray-500">Update your personal information</p>
+                </div>
+            </a>
+
+            <a href="{% url 'change_password' %}" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-150">
+                <div class="p-3 rounded-full bg-green-100 text-green-600">
+                    <i class="fas fa-key text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">Change Password</p>
+                    <p class="text-xs text-gray-500">Update your security settings</p>
+                </div>
+            </a>
+
+            <a href="{% url 'logout_view' %}" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-150">
+                <div class="p-3 rounded-full bg-red-100 text-red-600">
+                    <i class="fas fa-sign-out-alt text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">Logout</p>
+                    <p class="text-xs text-gray-500">Sign out of your account</p>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
